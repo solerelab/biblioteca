@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>biblioteca</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Assistant:wght@300;400;500;600&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- CSS modular -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/tags.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="css/estanterias.css" />
+  <link rel="stylesheet" href="css/colecciones.css" />
+  <link rel="stylesheet" href="css/leer.css" />
+  <link rel="stylesheet" href="css/sala.css" />
+  <link rel="stylesheet" href="css/libro-detail.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="app-header">
+  <div class="header-inner">
+    <div class="logo"><span class="logo-sym">✦</span> biblioteca</div>
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="menu">menú</button>
+      <button class="nav-tab"        data-tab="estanterias">estanterías</button>
+      <button class="nav-tab"        data-tab="colecciones">colecciones</button>
+      <button class="nav-tab"        data-tab="leer">leer</button>
+      <button class="nav-tab"        data-tab="sala">sala</button>
+    </nav>
+    <div class="sync-dot" id="syncDot" title="estado de carga"></div>
+  </div>
+</header>
+
+<!-- ============================================================
+     CONTENIDO PRINCIPAL
+     ============================================================ -->
+<main class="app-content">
+
+  <!-- ── MENÚ ─────────────────────────────────────────────── -->
+  <section class="section active" id="tab-menu">
+    <div class="admin-bar">
+      <span class="admin-label">BIBLIOTECA</span>
+      <button class="btn" id="btn-libro-aleatorio">✦ aleatorio</button>
+    </div>
+
+    <div class="menu-search-bar">
+      <input type="text" id="search-input" class="menu-search-input" placeholder="buscar libros..." />
+      <div class="search-scope">
+        <button class="scope-btn active" data-scope="titulo">título</button>
+        <button class="scope-btn active" data-scope="autor">autor</button>
+        <button class="scope-btn active" data-scope="tags">tags</button>
+      </div>
+      <button class="btn-sm" id="btn-clear-search">limpiar</button>
+    </div>
+
+    <div class="card mb16">
+      <div class="card-title">explorar por tags</div>
+      <div class="tags-cloud" id="tags-cloud"></div>
+      <div style="text-align:right;margin-top:8px">
+        <button class="btn-sm" id="btn-clear-tags">limpiar selección</button>
+      </div>
+    </div>
+
+    <div class="flex-between mb12">
+      <div class="section-title" id="menu-count-label">cargando...</div>
+    </div>
+    <div class="menu-results" id="menu-results"></div>
+  </section>
+
+  <!-- ── ESTANTERÍAS ──────────────────────────────────────── -->
+  <section class="section" id="tab-estanterias">
+    <div class="flex-between mb16">
+      <h2 class="section-title">estanterías</h2>
+    </div>
+    <div id="estanterias-wrap"></div>
+  </section>
+
+  <!-- ── COLECCIONES ──────────────────────────────────────── -->
+  <section class="section" id="tab-colecciones">
+    <div class="flex-between mb16">
+      <h2 class="section-title">colecciones</h2>
+    </div>
+    <div id="coleccion-detail-wrap" style="display:none" class="mb16">
+      <button class="btn-sm" id="btn-volver-colecciones">← volver</button>
+      <div id="coleccion-detail-content" class="mt12"></div>
+    </div>
+    <div class="colecciones-grid" id="colecciones-grid"></div>
+  </section>
+
+  <!-- ── LEER ─────────────────────────────────────────────── -->
+  <section class="section" id="tab-leer">
+    <div class="leer-layout">
+
+      <!-- visor -->
+      <div class="visor-wrap" id="visor-wrap">
+        <div class="visor-toolbar">
+          <div class="visor-titulo" id="visor-titulo">ningún documento abierto</div>
+          <button class="btn-sm" id="btn-visor-abrir-url" style="display:none" title="abrir original">↗</button>
+          <button class="btn-sm" id="btn-visor-grande"    title="ampliar visor">⊞</button>
+          <button class="btn-sm" id="btn-visor-dark"      title="modo oscuro visor">◑</button>
+          <button class="btn-sm" id="btn-dark-mode"       title="modo oscuro página">☾</button>
+          <button class="btn-sm" id="btn-visor-sala"      title="sala de lectura">✦ sala</button>
+        </div>
+        <div class="visor-container" id="visor-container">
+          <div class="visor-placeholder">
+            <div class="visor-placeholder-sym">✦</div>
+            <div class="text-muted">seleccioná un libro para leer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- sidebar -->
+      <div class="leer-sidebar">
+        <div class="sidebar-panel" id="panel-notas">
+          <div class="sidebar-panel-title">notas</div>
+          <div class="sidebar-panel-body">
+            <textarea class="notas-area" id="notas-area" placeholder="tomá notas acá..."></textarea>
+            <div style="display:flex;justify-content:flex-end;margin-top:6px">
+              <button class="btn-sm" id="btn-guardar-notas">guardar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-panel" id="panel-info-libro">
+          <div class="sidebar-panel-title">información del libro</div>
+          <div class="sidebar-panel-body">
+            <div id="info-libro-content" class="text-muted" style="font-size:0.75rem">—</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SALA DE LECTURA ──────────────────────────────────── -->
+  <section class="section" id="tab-sala">
+    <div class="sala-wrap" id="sala-wrap">
+      <div class="sala-bg"      id="sala-bg"></div>
+      <div class="sala-overlay" id="sala-overlay"></div>
+      <div class="sala-content">
+
+        <!-- visor sala -->
+        <div class="sala-visor-wrap">
+          <div class="sala-toolbar">
+            <div class="sala-toolbar-titulo" id="sala-visor-titulo">ningún documento abierto</div>
+            <button class="btn-sm sala-btn" id="btn-sala-abrir-leer">← leer</button>
+          </div>
+          <div class="sala-visor-inner" id="sala-visor-inner">
+            <div class="sala-placeholder">
+              <div class="sala-placeholder-sym">✦</div>
+              <div class="sala-placeholder-text">modo ambiente</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- controles sala -->
+        <div class="sala-controls">
+          <div>
+            <div class="sala-ctrl-label">FONDO</div>
+            <input type="text" class="sala-ctrl-input" id="sala-bg-url" placeholder="URL de imagen o GIF..." />
+            <div style="display:flex;gap:6px;margin-top:8px">
+              <button class="sala-btn" id="btn-sala-aplicar-bg">aplicar</button>
+              <button class="sala-btn" id="btn-sala-quitar-bg">quitar</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="sala-ctrl-label">LUMINOSIDAD</div>
+            <div class="luminosidad-wrap">
+              <span style="color:rgba(255,255,255,0.4);font-size:0.7rem">☽</span>
+              <input type="range" class="luminosidad-slider" id="sala-luminosidad" min="0" max="100" value="40" />
+              <span style="color:rgba(255,255,255,0.8);font-size:0.7rem">☀</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="sala-ctrl-label">LEYENDO</div>
+            <div class="sala-libro-info" id="sala-libro-info">— ningún libro abierto —</div>
+          </div>
+
+          <!--
+            ▸ FONDOS RÁPIDOS — agregá botones acá con data-url="URL_DE_IMAGEN"
+            Ejemplo:
+            <div>
+              <div class="sala-ctrl-label">FONDOS RÁPIDOS</div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <button class="sala-btn sala-bg-preset" data-url="./fondos/bosque.jpg">bosque</button>
+                <button class="sala-btn sala-bg-preset" data-url="./fondos/noche.gif">noche animada</button>
+              </div>
+            </div>
+          -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     MODALES
+     ============================================================ -->
+
+<!-- Modal: detalle libro -->
+<div class="modal-overlay" id="modal-libro">
+  <div class="modal wide">
+    <div class="modal-title" id="modal-libro-titulo"></div>
+    <div class="modal-body">
+      <div class="libro-detail-layout" id="libro-detail-layout"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-sm"   id="btn-modal-cerrar">cerrar</button>
+      <button class="btn primary" id="btn-modal-leer">leer ✦</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JS — módulos ES6
+     ▸ type="module" permite import/export sin bundler
+     ▸ funciona en cualquier navegador moderno y en GitHub Pages
+     ============================================================ -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
