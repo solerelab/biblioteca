@@ -1,0 +1,35 @@
+.colecciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.coleccion-card {
+  background: rgba(255,255,255,0.82);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px var(--shadow);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+body.dark .coleccion-card { background: rgba(36,30,26,0.9); }
+.coleccion-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+.coleccion-img    { width: 100%; height: 140px; object-fit: cover; display: block; }
+.coleccion-img-ph {
+  width: 100%; height: 140px;
+  background: linear-gradient(135deg, var(--panel), var(--cream));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: var(--muted);
+}
+
+.coleccion-body   { padding: 12px 14px 14px; }
+.coleccion-nombre {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.coleccion-desc   { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }

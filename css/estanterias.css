@@ -1,0 +1,69 @@
+.estanteria-section { margin-bottom: 36px; }
+
+.estanteria-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.estanteria-shelf {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 16px 8px 8px;
+  background: linear-gradient(180deg, transparent 70%, rgba(107,64,59,0.08) 100%);
+  border-radius: 10px;
+  border-bottom: 3px solid rgba(107,64,59,0.18);
+  scrollbar-width: thin;
+}
+.estanteria-shelf::-webkit-scrollbar       { height: 4px; }
+.estanteria-shelf::-webkit-scrollbar-track { background: transparent; }
+.estanteria-shelf::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.lomo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 36px;
+  min-height: 160px;
+  border-radius: 4px 1px 1px 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1), -1px 0 0 rgba(255,255,255,0.3) inset;
+}
+.lomo:hover { transform: translateY(-10px) scaleX(1.08); box-shadow: 4px 8px 16px rgba(0,0,0,0.18); }
+
+.lomo-texto {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 8px 4px;
+  color: rgba(255,255,255,0.85);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 140px;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  font-family: 'Assistant', sans-serif;
+}
+.lomo-autor { font-size: 0.5rem; opacity: 0.7; margin-top: 4px; }
+
+.lomo-c0 { background: var(--lomo-c0); }
+.lomo-c1 { background: var(--lomo-c1); }
+.lomo-c2 { background: var(--lomo-c2); }
+.lomo-c3 { background: var(--lomo-c3); }
+.lomo-c4 { background: var(--lomo-c4); }
+.lomo-c5 { background: var(--lomo-c5); }
+.lomo-c6 { background: var(--lomo-c6); }
+.lomo-c7 { background: var(--lomo-c7); }

@@ -1,0 +1,43 @@
+:root {
+  --bg: #faf8f5;
+  --panel: #f3ede8;
+  --border: #e2d9d3;
+  --text: #3d2f2b;
+  --muted: #7a6460;
+  --accent: #6b403b;
+  --shadow: rgba(107,64,59,0.12);
+  --warn: #d4a853;
+  --ok: #5a7a5a;
+  --cream: #f4efe4;
+  --sky: #b8dde0;
+
+  --tag-c0-bg: #e8e2b8; --tag-c0-text: #6C6A43;
+  --tag-c1-bg: #f0cdd5; --tag-c1-text: #BF3556;
+  --tag-c2-bg: #d4dce8; --tag-c2-text: #4D3449;
+  --tag-c3-bg: #f7ddd5; --tag-c3-text: #8b5e52;
+  --tag-c4-bg: #ddd8e4; --tag-c4-text: #4D3449;
+  --tag-c5-bg: #e0de9e; --tag-c5-text: #6C6A43;
+  --tag-c6-bg: #b8dde0; --tag-c6-text: #3a6e72;
+  --tag-c7-bg: #f4efe4; --tag-c7-text: #6b403b;
+
+  --lomo-c0: linear-gradient(180deg,#7a5c58,#6b403b);
+  --lomo-c1: linear-gradient(180deg,#5c6a7a,#3b4d6b);
+  --lomo-c2: linear-gradient(180deg,#5a7a5a,#3b6b3b);
+  --lomo-c3: linear-gradient(180deg,#7a6a5a,#6b5a3b);
+  --lomo-c4: linear-gradient(180deg,#6a5a7a,#4d3449);
+  --lomo-c5: linear-gradient(180deg,#7a5a6a,#6b3b50);
+  --lomo-c6: linear-gradient(180deg,#5a7a72,#3b6b62);
+  --lomo-c7: linear-gradient(180deg,#72705a,#5a5a3b);
+}
+
+/* dark mode */
+body.dark {
+  --bg: #1a1612;
+  --panel: #241e1a;
+  --border: #3a2e28;
+  --text: #e8ddd8;
+  --muted: #a89890;
+  --accent: #c4887f;
+  --shadow: rgba(0,0,0,0.35);
+  --cream: #2a2018;
+}

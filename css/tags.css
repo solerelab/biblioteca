@@ -1,0 +1,81 @@
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: 'Assistant', sans-serif;
+  transition: all 0.25s;
+  border: 1.5px solid transparent;
+  user-select: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.tag-bubble:hover    { transform: scale(1.08) rotate(-1deg); }
+.tag-bubble.selected { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(107,64,59,0.18); transform: scale(1.1); }
+
+.tag-inline {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: 'Assistant', sans-serif;
+  margin: 2px;
+}
+
+.tag-c0 { background: var(--tag-c0-bg); color: var(--tag-c0-text); }
+.tag-c1 { background: var(--tag-c1-bg); color: var(--tag-c1-text); }
+.tag-c2 { background: var(--tag-c2-bg); color: var(--tag-c2-text); }
+.tag-c3 { background: var(--tag-c3-bg); color: var(--tag-c3-text); }
+.tag-c4 { background: var(--tag-c4-bg); color: var(--tag-c4-text); }
+.tag-c5 { background: var(--tag-c5-bg); color: var(--tag-c5-text); }
+.tag-c6 { background: var(--tag-c6-bg); color: var(--tag-c6-text); }
+.tag-c7 { background: var(--tag-c7-bg); color: var(--tag-c7-text); }
+
+/* tag chips en form */
+.tags-input-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 6px 8px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+  min-height: 38px;
+  cursor: text;
+}
+body.dark .tags-input-wrap { background: rgba(36,30,26,0.9); }
+.tags-input-wrap:focus-within { border-color: var(--accent); }
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+.tag-chip-x { cursor: pointer; opacity: 0.6; font-size: 0.75rem; line-height: 1; }
+.tag-chip-x:hover { opacity: 1; }
+.tag-text-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.78rem;
+  font-family: 'Assistant', sans-serif;
+  min-width: 80px;
+  flex: 1;
+  color: var(--text);
+}
