@@ -44,7 +44,7 @@ export function buildViewerUrl(pdfUrl) {
     return pdfUrl.replace(/[?&]dl=[01]/, '').replace(/\?$/, '') + '?raw=1';
 
   // PDF.js local
-  return 'pdfjs/web/viewer.html?file=' + encodeURIComponent('/' + pdfUrl);
+  return './pdfjs/web/viewer.html?file=' + encodeURIComponent('../' + pdfUrl);
 }
 
 /** Genera una portada con Canvas cuando no hay imagen */
