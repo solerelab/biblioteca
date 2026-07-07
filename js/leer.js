@@ -10,6 +10,7 @@ export function abrirEnVisor(libroId, esSala) {
   state.currentLeerLibroId = libroId;
 
   const url = buildViewerUrl(l.pdf_url);
+  console.log("URL DEL VISOR:", url);
 
   if (esSala) {
     goToTab('sala');
