@@ -1,0 +1,38 @@
+[
+    {
+      "id": "VA000001",
+      "titulo": "Colonialidad del Poder y Clasificación Social",
+      "autor": "Aníbal Quijano",
+      "anio": 1999,
+      "idioma": "es",
+      "editorial": "",
+      "tags": [
+        "sociología",
+        "América Latina"
+      ],
+      "coleccion": "Colección primera",
+      "estanteria": "Sociales",
+      "portada_url": "portadas/Quijano_colonialidad-del-poder-y-clasificacion-social.jpg",
+      "pdf_url": "pdfs/Quijano_colonialidad-del-poder-y-clasificacion-social.pdf",
+      "resumen": "Texto fundamental que analiza cómo la idea de raza y el eurocentrismo siguen operando como el criterio principal de clasificación social y dominación económica en el capitalismo global, incluso tras el fin del colonialismo político.",
+      "palabras_clave": "poder, trabajo, teoria decolonial"
+    },
+    {
+      "id": "LI000001",
+      "titulo": "Free Play: la improvisación en la vida y el arte",
+      "autor": "Stephen Nachmanovitch",
+      "anio": 1990,
+      "idioma": "es",
+      "editorial": "",
+      "tags": [
+        "Arte",
+        "Improvisación"
+      ],
+      "coleccion": "Colección primera",
+      "estanteria": "Estilo de vida",
+      "portada_url": "portadas/Nachmanovitch_free-play.jpg",
+      "pdf_url": "pdfs/Nachmanovitch_free-play.pdf",
+      "resumen": "Un profundo recorrido por los diversos atributos y posibilidades que ofrece la improvisación como método, tanto para cualquier lenguaje artístico, también factible de ser utilizado como filosofía para la existencia",
+      "palabras_clave": "improvisación, vida, arte, juego"
+    }
+  ]
